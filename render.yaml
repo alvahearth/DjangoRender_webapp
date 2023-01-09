@@ -1,7 +1,7 @@
 databases:
-  - name: DjangoBlog_app
-    databaseName: DjangoBlog_app
-    user: DjangoBlog_app
+  - name: my_users
+    databaseName: my_users
+    user: admin
 
 services:
   - type: web
