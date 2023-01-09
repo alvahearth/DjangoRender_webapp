@@ -1,0 +1,20 @@
+databases:
+  - name: DjangoBlog_app
+    databaseName: DjangoBlog_app
+    user: DjangoBlog_app
+
+services:
+  - type: web
+    name: DjangoBlog_app
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn mysite.wsgi:application"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: DjangoBlog_app
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
